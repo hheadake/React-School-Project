@@ -43,12 +43,10 @@ useEffect(() => {
                   <div className="text-sm text-gray-700">
                     {item.price}
                   </div>
-                  <div className="flex items-center gap-1 px-2 py-1 text-gray-700 rounded cursor-pointer hover:bg-gray-200 transition-colors duration-300 ease-in-out">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"></path>
-                    </svg>
+                  <div className="flex items-center gap-1 px-2 py-1 text-gray-700 rounded cursor-pointer hover:bg-lime-200 transition-colors duration-300 ease-in-out">
+                    
                     <span>
-                      Add to Cart
+                      Details
                     </span>
                   </div>
                 </div>
