@@ -18,9 +18,6 @@ useEffect(() => {
           {games.map(item => (
             <li key={item._id} className="relative flex w-full gap-4 p-2 border border-gray-700 rounded hover:border-fuchsia-800 hover:shadow-fuchsia-600 transition-shadow duration-300 ease-in-out shadow-md">
               <div className="absolute flex justify-center gap-1 w-10 text-xl font-bold text-center text-green-800 -top-2 -left-2">
-                <span className="self-end text-gray-800 text-sm">
-                  1
-                </span>
               </div>
               <Link to="/">
                 <div className="w-full overflow-hidden rounded">
@@ -43,11 +40,27 @@ useEffect(() => {
                   <div className="text-sm text-gray-700">
                     {item.price}
                   </div>
-                  <div className="flex items-center gap-1 px-2 py-1 text-gray-700 rounded cursor-pointer hover:bg-lime-200 transition-colors duration-300 ease-in-out">
+                  <div className="flex items-center gap-1 px-2 py-1 text-gray-700 rounded cursor-pointer hover:bg-amber-400 transition-colors duration-300 ease-in-out">
                     
                     <span>
-                      Details
+                      Детайли
                     </span>
+                    
+                  </div>
+                  <div className="flex items-center gap-1 px-2 py-1 text-gray-700 rounded cursor-pointer hover:bg-red-200 transition-colors duration-300 ease-in-out">
+                    
+                    <span>
+                      Обнови
+                    </span>
+                    
+                  </div>
+                  
+                  <div className="flex items-center gap-1 px-2 py-1 text-gray-700 rounded cursor-pointer hover:bg-red-600 transition-colors duration-300 ease-in-out">
+                    
+                    <span>
+                      Изтрий
+                    </span>
+                    
                   </div>
                 </div>
               </div>

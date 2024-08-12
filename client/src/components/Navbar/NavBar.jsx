@@ -11,15 +11,15 @@ const {isAuthenticated} = useContext(AuthContext);
 
 
   return (
-    <header className="bg-lime-600 text-white shadow-md">
+    <header className="bg-amber-700 text-white shadow-md">
       <div className="max-w-screen-xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
           <img
             className="h-10 w-auto"
-            src="https://www.svgrepo.com/show/303650/neo-logo.svg"
+            src="https://www.svgrepo.com/show/40347/owl.svg"
             alt="Logo"
           />
-          <h1 className="text-xl ml-4 font-semibold">Your Header Title</h1>
+          <h1 className="text-xl ml-4 font-semibold">LEARNIT</h1>
         </div>
         <nav className="space-x-4">
 
