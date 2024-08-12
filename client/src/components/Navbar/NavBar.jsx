@@ -8,7 +8,7 @@ import { AuthContext } from '../../context/authContext.jsx';
 
 function NavBarComp() {
 const {isAuthenticated} = useContext(AuthContext);
-
+const {select} = useContext(AuthContext);
 
   return (
     <header className="bg-amber-700 text-white shadow-md">
