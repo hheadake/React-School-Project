@@ -1,28 +1,28 @@
 import * as request from './requester'
 //todo Change data name
-const BASE_URL = 'http://localhost:3030/data/games'
+const BASE_URL = 'http://localhost:3030/data/students'
 
  const getAll = async () => {
     
     
     
     const result = await request.get(BASE_URL);
-    const games = Object.values(result);
-    return games;
+    const students = Object.values(result);
+    return students;
 
 
 
 }
 
-const getOne = (gameId) => request.get(`${BASE_URL}/${gameId}`)
+const getOne = (studentId) => request.get(`${BASE_URL}/${studentId}`)
 
 const create = (studentData) => request.post(`${BASE_URL}`, studentData)
 
 
-const gameAPI = {
+const studentAPI = {
     getAll,
     getOne,
     create,
 }
 
-export default gameAPI;
+export default studentAPI;

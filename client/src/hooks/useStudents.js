@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import gameAPI from '../api/games-api'
+import gameAPI from '../api/studentsApi'
 
 
 

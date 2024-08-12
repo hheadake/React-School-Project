@@ -13,7 +13,6 @@ export const useLogin = () => {
         }
 
 
-
     }
 
 
@@ -25,8 +24,8 @@ export const useLogin = () => {
 export const useRegister = () => {
     const { changeAuthState } = useContext(AuthContext)
 
-    const registerHandler = async (email, password) => {
-        const result = await register(email, password)
+    const registerHandler = async (email, password, name, familyName, select) => {
+        const result = await register(email, password, name, familyName, select)
         changeAuthState(result);
         return result
     }
