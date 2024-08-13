@@ -51,13 +51,13 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-lime-600 hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500 w-full"
+            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-amber-400 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500 w-full"
           >
-            Log In
+            Вход
           </button>
         </form>
         <p className="text-sm text-gray-600 text-center">
-          Don't have an account? <a href="/signup" className="text-lime-600 hover:text-lime-700">Sign up</a>
+         Нямате регистрация? <a href="/signup" className="text-amber-400 hover:text-amber-500">Регистрирайте се</a>
         </p>
       </div>
     </div>

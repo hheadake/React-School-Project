@@ -23,7 +23,7 @@ const Home = () => {
       <div className="relative py-16 flex justify-center px-4 sm:px-0">
         <div className="max-w-3xl text-center">
           <div className="pb-4">
-            <span className="inline-flex items-center rounded-2xl bg-lime-100 px-4 py-1.5 text-xs sm:text-sm font-serif font-medium text-lime-700">
+            <span className="inline-flex items-center rounded-2xl bg-amber-100 px-4 py-1.5 text-xs sm:text-sm font-serif font-medium text-amber-400">
               Unlock the potential of AI in education.
             </span>
           </div>
@@ -35,7 +35,7 @@ const Home = () => {
           </p>
           <div className="mt-8 flex w-full space-x-8 justify-center">
             <Link to={'/catalog'}>
-              <button className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-lime-600 hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">
+              <button className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-amber-600 hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">
                 Start now for free
               </button>
             </Link>

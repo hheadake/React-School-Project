@@ -154,7 +154,7 @@ const QuizTable = () => {
                     onClick={() => deleteQuestion(qIndex)}
                     className="text-red-500"
                   >
-                    Delete
+                    изтрий
                   </button>
                 </div>
               </div>
@@ -164,15 +164,15 @@ const QuizTable = () => {
           <button
             type="button"
             onClick={addQuestion}
-            className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="mt-4 bg-sky-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
           >
-            Add Item
+            Добави въпроси
           </button>
           <button
             type="submit"
-            className="mt-4 ml-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+            className="mt-4 ml-4 bg-amber-400 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded"
           >
-            Submit
+            Запази
           </button>
         </form>
       </div>

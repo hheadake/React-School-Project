@@ -35,7 +35,7 @@ const FormComponent = () => {
                   <td className="px-6 py-4 whitespace-nowrap">jane@example.com</td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <Link to={`/studentTest/${q._id}`}>
-                      <button className="px-4 py-2 font-medium text-white bg-lime-600 rounded-md hover:bg-lime-700 focus:outline-none focus:ring-4 focus:bg-lime-600 active:bg-lime-700 transition duration-150 ease-in-out">
+                      <button className="px-4 py-2 font-medium text-white bg-amber-400 rounded-md hover:bg-amber-600 focus:outline-none focus:ring-4 focus:bg-amber-400 active:bg-amber-600 transition duration-150 ease-in-out">
                         Тест
                       </button>
                     </Link>

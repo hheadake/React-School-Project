@@ -7,3 +7,12 @@
         @apply mx-auto max-w-6xl px-8;
     }
 }
+@layer base {
+    @font-face {
+      font-family: 'Strawberry Cheesecuit';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('../src/assets/Strawberry\ Cheesecuit.ttf') format('woff2');
+    }
+  }

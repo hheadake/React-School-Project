@@ -15,11 +15,11 @@ const {select} = useContext(AuthContext);
       <div className="max-w-screen-xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
           <img
-            className="h-10 w-auto"
-            src="https://www.svgrepo.com/show/40347/owl.svg"
+            className="h-20 w-20"
+            src="https://img.icons8.com/?size=100&id=P6W1qLRLj5Mo&format=png&color=000000"
             alt="Logo"
           />
-          <h1 className="text-xl ml-4 font-semibold">LEARNIT</h1>
+          <h1 className="text-lg ml-4 font-sans ">LEARNIT</h1>
         </div>
         <nav className="space-x-4">
 
@@ -31,6 +31,7 @@ const {select} = useContext(AuthContext);
               <Link to={'/profile'} className="text-white hover:text-lime-300">Профил</Link>
               <Link to={'/addStudent'} className="text-white hover:text-lime-300">Добави ученик</Link>
               </>)
+              
             :
             (
               <><Link to={'/register'} className="text-white hover:text-lime-300">Регистрация</Link>
