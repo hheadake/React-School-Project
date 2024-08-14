@@ -1,14 +1,24 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/authContext';
+import { useParams } from 'react-router-dom';
+import { useGetOneProfile } from '../../hooks/useProfile';
 
 
 
 const ProfileCard = () => {
 
   const {name, familyName,role} = useContext(AuthContext)
-  console.log(name, familyName,role);
+ 
+
+
+  
+  const [profile, setProfile] = useGetOneProfile();
+
+
+  console.log(profile)
+
   
 
   return (
@@ -26,15 +36,7 @@ const ProfileCard = () => {
                 />
                 <h1 className="text-xl font-bold">{name} {familyName}</h1>
                 <p className="text-gray-700">{role}</p>
-                <div className="mt-6 flex flex-wrap gap-4 justify-center">
-                  <a
-                    href="#"
-                    className="bg-amber-400 hover:bg-amber-600 text-white py-2 px-4 rounded"
-                  >
-                    Contact
-                  </a>
                 
-                </div>
               </div>
               <hr className="my-6 border-t border-gray-300" />
               <div className="flex flex-col">
@@ -55,6 +57,13 @@ const ProfileCard = () => {
           {/* About Me and Experience Section */}
           <div className="col-span-4 sm:col-span-9">
             <div className="bg-white shadow rounded-lg p-6">
+            <div className="mt-6 flex flex-wrap gap-4 justify-center">
+                  <Link to={'/editProfile'} className="bg-amber-400 hover:bg-amber-600 text-white py-2 px-4 rounded">
+                  
+                    Добави данни
+                  </Link>
+                
+                </div>
               <h2 className="text-xl font-bold mb-4">About Me</h2>
               <p className="text-gray-700">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed finibus est vitae tortor ullamcorper, ut vestibulum velit convallis. Aenean posuere risus non velit egestas suscipit. Nunc finibus vel ante id euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Nulla vulputate pharetra tellus, in luctus risus rhoncus id.

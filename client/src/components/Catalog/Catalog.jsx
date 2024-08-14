@@ -49,9 +49,9 @@ useEffect(() => {
                   </div>
                   <div className="flex items-center gap-1 px-2 py-1 text-gray-700 rounded cursor-pointer hover:bg-red-200 transition-colors duration-300 ease-in-out">
                     
-                    <span>
+                    <Link to={`/studentDetails/${item._id}`}>
                       Обнови
-                    </span>
+                    </Link> 
                     
                   </div>
                   

@@ -10,7 +10,7 @@ const initialValues = {
    password: '',
    name: '',
    familyName: '',
-   role: false,
+   role: '',
   
   };
 

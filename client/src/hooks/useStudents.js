@@ -1,44 +1,44 @@
 import { useState, useEffect } from "react";
-import gameAPI from '../api/studentsApi'
+import studentAPI from '../api/studentsApi'
 
 
 
-export function useGetAllGames() {
+export function useGetAllstudents() {
 
-    const [games, setGame] = useState([]);
+    const [students, setStudent] = useState([]);
 
     useEffect(() => {
       (async () => {
-        const result = await gameAPI.getAll();
-        setGame(result);
+        const result = await studentAPI.getAll();
+        setStudent(result);
       })();
     }, []);
 
 
-return [games, setGame]
+return [students, setStudent]
 
 
 
 }
 
-export function useGetOneGame (gameId) {
-    const [game, setGame] = useState({});
+export function useGetOnestudent (studentId) {
+    const [student, setStudent] = useState({});
 
     useEffect(() => {
         (async () => {
-        const result = await gameAPI.getOne(gameId)
-        setGame(result)
+        const result = await studentAPI.getOne(studentId)
+        setStudent(result)
         })();
-    }, [gameId]);
+    }, [studentId]);
     
 
-    return [game, setGame]
+    return [student, setStudent]
 }
 
 
 export function useAddStudent() {
 
- const addStudentHandler = (studentData) => gameAPI.create(studentData);
+ const addStudentHandler = (studentData) => studentAPI.create(studentData);
 
  return addStudentHandler;
  

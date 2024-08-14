@@ -15,6 +15,8 @@ import { Route, Routes } from "react-router-dom";
 import { AuthContextProvider } from "./context/authContext.jsx";
 import QuizTable from "./components/QuestionForm/QuizForm.jsx";
 import StudentsTest from "./components/QuestionForm/StudentsTest.jsx";
+import FormProfile from "./components/Profile/FormProfile.jsx";
+import Details from "./components/Catalog/Details.jsx";
 
 function App() {
   
@@ -34,6 +36,8 @@ function App() {
     <Route path='/profile' element={<ProfileCard/>} />
     <Route path='/addStudent' element={<AddStudent/>} />
     <Route path='/quizForm' element={<QuizTable/>} />
+    <Route path='/editProfile' element={<FormProfile/>} />
+    <Route path='/studentDetails/:studentId' element={<Details/>} />
     <Route path='/studentTest/:testId' element={<StudentsTest/>} />
     </Routes>
    </div>
