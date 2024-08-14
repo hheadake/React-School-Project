@@ -17,6 +17,7 @@ import QuizTable from "./components/QuestionForm/QuizForm.jsx";
 import StudentsTest from "./components/QuestionForm/StudentsTest.jsx";
 import FormProfile from "./components/Profile/FormProfile.jsx";
 import Details from "./components/Catalog/Details.jsx";
+import Edit from "./components/Catalog/Edit.jsx";
 
 function App() {
   
@@ -38,6 +39,7 @@ function App() {
     <Route path='/quizForm' element={<QuizTable/>} />
     <Route path='/editProfile' element={<FormProfile/>} />
     <Route path='/studentDetails/:studentId' element={<Details/>} />
+    <Route path='/editStudent/:studentId' element={<Edit/>} />
     <Route path='/studentTest/:testId' element={<StudentsTest/>} />
     </Routes>
    </div>

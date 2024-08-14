@@ -1,10 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useGetOnestudent } from '../../hooks/useStudents'
 import { useParams } from 'react-router-dom'
 import DetailsComp from './DetailsComp'
 import { AuthContext } from '../../context/authContext'
 import { useContext } from 'react'
+import studentAPI from '../../api/studentsApi'
 
 
 
@@ -16,12 +17,20 @@ const Details = () => {
 
 const {studentId} = useParams()    
 const [student, setStudent] = useGetOnestudent(studentId)
-
 const {isAuthenticated, userID} = useContext(AuthContext);
+const navigate = useNavigate()
 
 
 const owner = userID === student._ownerId;
+const removeStudent = async () => {
 
+    try {
+        await studentAPI.remove(studentId)
+        navigate('/catalog')
+    } catch (err) {
+        console.log(err)
+    }
+}
 
   return (
 
@@ -42,16 +51,14 @@ const owner = userID === student._ownerId;
         </div>
 
           { owner && (<div className="p-4 border-t mx-8 mt-2 flex justify-around">
-          <Link ><button
-           
-            className="w-auto block bg-amber-400 rounded-full hover:bg-amber-600 hover:shadow-lg font-semibold text-white px-6 py-2"
-          >
+
+          <Link to={`/editStudent/${studentId}`} className="w-auto block bg-amber-400 rounded-full hover:bg-amber-600 hover:shadow-lg font-semibold text-white px-6 py-2">
             Редактирай
-          </button> </Link>
-          <button
+           </Link>
+          <button onClick={removeStudent}
             
             className="w-auto block rounded-full bg-red-600 hover:bg-red-700 hover:shadow-lg font-semibold text-white px-6 py-2"
-          >
+          > 
             Изтрий
           </button>
         </div>)}    

@@ -11,9 +11,11 @@ setValues(state => ({
 }))
 
 }
-const submitHandler = (e) => {
+const submitHandler = async (e) => {
     e.preventDefault();
-    submitCallBack(values);
+    await submitCallBack(values);
+    
+    setValues(initValues)
 }
 
 

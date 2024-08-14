@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/authContext.jsx';
 
 function NavBarComp() {
-const {isAuthenticated} = useContext(AuthContext);
-const {select} = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
+  const { select } = useContext(AuthContext);
 
   return (
     <header className="bg-amber-700 text-white shadow-md">
@@ -23,20 +23,25 @@ const {select} = useContext(AuthContext);
         </div>
         <nav className="space-x-4">
 
+          <Link to={'/catalog'} className="text-white hover:text-lime-300">Ученици</Link>
 
           {isAuthenticated ?
-            (<><Link to={'/catalog'} className="text-white hover:text-lime-300">Дневник</Link>
+            (<>
               <Link to={'/formCopmonent'} className="text-white hover:text-lime-300">Тестове</Link>
               <Link to={'/quizForm'} className="text-white hover:text-lime-300">Създай тест</Link>
               <Link to={'/profile'} className="text-white hover:text-lime-300">Профил</Link>
               <Link to={'/addStudent'} className="text-white hover:text-lime-300">Добави ученик</Link>
-              </>)
-              
+            </>)
+
             :
             (
-              <><Link to={'/register'} className="text-white hover:text-lime-300">Регистрация</Link>
+              <>
+
+                <Link to={'/register'} className="text-white hover:text-lime-300">Регистрация</Link>
                 <Link to={'/login'} className="text-white hover:text-lime-300">Вход</Link></>
+
             )
+
 
           }
 
