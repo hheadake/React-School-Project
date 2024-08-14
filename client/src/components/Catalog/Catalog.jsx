@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import studentAPI from '../../api/studentsApi';
 const CatalogPage = () => {
 
-const [students, setStudents] = useState([]);
-useEffect(() => {
-  studentAPI.getAll()
-  .then(result => setStudents(result));
-}, []);
+  const [students, setStudents] = useState([]);
+  useEffect(() => {
+    studentAPI.getAll()
+      .then(result => setStudents(result));
+  }, []);
 
 
   return (
@@ -31,7 +31,7 @@ useEffect(() => {
                       {item.name} {item.familyName}
                     </span>
                   </Link>
-                  
+
                   <p className="pt-1 text-sm text-black">
                     {item.year} клас
                   </p>
@@ -41,27 +41,17 @@ useEffect(() => {
                     {item.price}
                   </div>
                   <div className="flex items-center gap-1 px-2 py-1 text-gray-700 rounded cursor-pointer hover:bg-amber-400 transition-colors duration-300 ease-in-out">
-                    
-                    <span>
-                      Детайли
-                    </span>
-                    
-                  </div>
-                  <div className="flex items-center gap-1 px-2 py-1 text-gray-700 rounded cursor-pointer hover:bg-red-200 transition-colors duration-300 ease-in-out">
-                    
+
+
+
                     <Link to={`/studentDetails/${item._id}`}>
-                      Обнови
-                    </Link> 
-                    
+                      Детайли
+                    </Link>
+
                   </div>
+        
+
                   
-                  <div className="flex items-center gap-1 px-2 py-1 text-gray-700 rounded cursor-pointer hover:bg-red-600 transition-colors duration-300 ease-in-out">
-                    
-                    <span>
-                      Изтрий
-                    </span>
-                    
-                  </div>
                 </div>
               </div>
             </li>

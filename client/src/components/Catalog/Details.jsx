@@ -1,16 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useGetOnestudent } from '../../hooks/useStudents'
 import { useParams } from 'react-router-dom'
 import DetailsComp from './DetailsComp'
-
-
-
-// const initialValues = {
-//     name: '',
-//     familyName: '',
-//     grade: '',
-// }
-
+import { AuthContext } from '../../context/authContext'
+import { useContext } from 'react'
 
 
 
@@ -23,12 +17,10 @@ const Details = () => {
 const {studentId} = useParams()    
 const [student, setStudent] = useGetOnestudent(studentId)
 
+const {isAuthenticated, userID} = useContext(AuthContext);
 
 
-
-const arr = Object.values(student)
-
-
+const owner = userID === student._ownerId;
 
 
   return (
@@ -49,12 +41,21 @@ const arr = Object.values(student)
         </ul>
         </div>
 
-
-   
-    <div className="p-4 border-t mx-8 mt-2">
-        <button className="w-1/2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2">Follow</button>
-    
-    </div>
+          { owner && (<div className="p-4 border-t mx-8 mt-2 flex justify-around">
+          <Link ><button
+           
+            className="w-auto block bg-amber-400 rounded-full hover:bg-amber-600 hover:shadow-lg font-semibold text-white px-6 py-2"
+          >
+            Редактирай
+          </button> </Link>
+          <button
+            
+            className="w-auto block rounded-full bg-red-600 hover:bg-red-700 hover:shadow-lg font-semibold text-white px-6 py-2"
+          >
+            Изтрий
+          </button>
+        </div>)}    
+        
 
 </div>
 
