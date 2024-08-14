@@ -1,6 +1,9 @@
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import testAPI from '../../api/testApi';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/authContext';
 
 const FormComponent = () => {
   const [questions, setQuestions] = useState([]);
@@ -10,6 +13,12 @@ const FormComponent = () => {
     testAPI.getAll().then((result) => setQuestions(result));
   }, []);
 
+
+  const {isAuthenticated,email,name,familyName,role,userID} = useContext(AuthContext);
+
+
+
+// const owner = userID === student._ownerId;
   return (
     <div className="container mx-auto p-6">
       <div className="bg-white border border-gray-200 rounded-lg shadow-md">
@@ -17,13 +26,13 @@ const FormComponent = () => {
           <thead>
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Name
+                {name}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Email
+               {email}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Role
+                {role}
               </th>
             </tr>
           </thead>
@@ -31,8 +40,8 @@ const FormComponent = () => {
             {questions.length > 0 ? (
               questions.map((q) => (
                 <tr key={q._id}>
-                  <td className="px-6 py-4 whitespace-nowrap">{q._id}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">jane@example.com</td>
+                  <td className="px-6 py-4 whitespace-nowrap">{familyName}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">{email}</td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <Link to={`/studentTest/${q._id}`}>
                       <button className="px-4 py-2 font-medium text-white bg-amber-400 rounded-md hover:bg-amber-600 focus:outline-none focus:ring-4 focus:bg-amber-400 active:bg-amber-600 transition duration-150 ease-in-out">

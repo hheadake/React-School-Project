@@ -3,7 +3,7 @@ import Home from "./components/Home/Home"
 import './index.css';
 import Login from "./components/Login/Login";
 import CatalogPage from "./components/Catalog/Catalog";
-import QuestionForm from "./components/QuestionForm/QuestionForm"
+
 import Register from "./components/Register/Register";
 import FormComponent from "./components/QuestionForm/FormComponent.jsx";
 import ProfileCard from "./components/Profile/Profile";
@@ -33,7 +33,6 @@ function App() {
     <Route path='/login' element={<Login/>} />
     <Route path='/register' element={<Register/>} />
     <Route path='/formCopmonent' element={<FormComponent/>} />
-    <Route path='/questionForm' element={<QuestionForm/>} />
     <Route path='/profile' element={<ProfileCard/>} />
     <Route path='/addStudent' element={<AddStudent/>} />
     <Route path='/quizForm' element={<QuizTable/>} />
