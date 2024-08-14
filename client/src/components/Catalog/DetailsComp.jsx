@@ -6,7 +6,7 @@ const DetailsComp = ({
     familyName,
     year,
 }) => {
-    console.log(year);
+   
     
     return (
 

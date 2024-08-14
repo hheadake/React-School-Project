@@ -40,15 +40,15 @@ const CatalogPage = () => {
                   <div className="text-sm text-gray-700">
                     {item.price}
                   </div>
-                  <div className="flex items-center gap-1 px-2 py-1 text-gray-700 rounded cursor-pointer hover:bg-amber-400 transition-colors duration-300 ease-in-out">
+                  
 
 
 
-                    <Link to={`/studentDetails/${item._id}`}>
+                    <Link to={`/studentDetails/${item._id}`} className="flex items-center gap-1 px-2 py-1 text-gray-700 rounded cursor-pointer bg-amber-400 hover:bg-amber-600 transition-colors duration-300 ease-in-out">
                       Детайли
                     </Link>
 
-                  </div>
+                  
         
 
                   
