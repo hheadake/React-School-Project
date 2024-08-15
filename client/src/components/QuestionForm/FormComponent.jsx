@@ -10,7 +10,12 @@ const FormComponent = () => {
   const testId = useParams();
 
   useEffect(() => {
-    testAPI.getAll().then((result) => setQuestions(result));
+    try {
+      testAPI.getAll().then((result) => setQuestions(result));
+    } catch (err) {
+      console.log(err)
+    }
+    
   }, []);
 
 

@@ -5,17 +5,23 @@ import studentAPI from '../../api/studentsApi';
 const CatalogPage = () => {
 
   const [students, setStudents] = useState([]);
-  useEffect(() => {
-    studentAPI.getAll()
+  useEffect(() => { 
+    try {
+      studentAPI.getAll()
       .then(result => setStudents(result));
+    } catch (err) {
+      console.log(err)
+    }
+   
   }, []);
 
+  console.log(students)
 
   return (
     <div className="bg-gray-100 min-h-screen py-12">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <ul className="grid grid-cols-1 gap-8 px-1 md:grid-cols-2 lg:grid-cols-3 md:p-2 xl:p-4">
-          {students.map(item => (
+          {students.length > 0 ? students.map(item => (
             <li key={item._id} className="relative flex w-full gap-4 p-2 border border-gray-700 rounded hover:border-fuchsia-800 hover:shadow-fuchsia-600 transition-shadow duration-300 ease-in-out shadow-md">
               <div className="absolute flex justify-center gap-1 w-10 text-xl font-bold text-center text-green-800 -top-2 -left-2">
               </div>
@@ -55,7 +61,8 @@ const CatalogPage = () => {
                 </div>
               </div>
             </li>
-          ))}
+          )) : <p> No students yet </p>}
+         
         </ul>
       </div>
     </div>

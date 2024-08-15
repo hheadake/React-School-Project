@@ -5,12 +5,12 @@ import AnswersCopmonent from './AnswersCopmonent';
 
 
 const StudentsTest = () => {
-  //toDo fix for loops
+ 
   const { testId } = useParams();
   const [test, setTest] = useGetOneTest(testId);
-  // const questionObject = Object.values(test)
+  
   const questionsWithAnswers = []
-  // const answers = []
+
 
   for (const element of Object.values(test)) {
     if (element.question && element.options) {
