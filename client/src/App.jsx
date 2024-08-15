@@ -18,7 +18,7 @@ import StudentsTest from "./components/QuestionForm/StudentsTest.jsx";
 import FormProfile from "./components/Profile/FormProfile.jsx";
 import Details from "./components/Catalog/Details.jsx";
 import Edit from "./components/Catalog/Edit.jsx";
-import PrivateGuard from "./components/PrivateGuard.jsx";
+import PrivateGuard from "./components/guard/PrivateGuard.jsx";
 
 function App() {
   

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
-import { AuthContext } from '../context/authContext'
+import { AuthContext } from '../../context/authContext'
 import { useContext } from 'react'
 
 
