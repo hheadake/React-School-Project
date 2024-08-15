@@ -19,6 +19,7 @@ import FormProfile from "./components/Profile/FormProfile.jsx";
 import Details from "./components/Catalog/Details.jsx";
 import Edit from "./components/Catalog/Edit.jsx";
 import PrivateGuard from "./components/guard/PrivateGuard.jsx";
+import Logout from "./components/Logout/Logout.jsx";
 
 function App() {
   
@@ -32,6 +33,7 @@ function App() {
     <Route path='/' element={<Home/>} />
     <Route path='/catalog' element={<CatalogPage/>} />
     <Route path='/login' element={<Login/>} />
+    <Route path='/logout' element={<Logout/>} />
     <Route path='/register' element={<Register/>} />
     <Route path='/studentDetails/:studentId' element={<Details/>} />
     <Route element={<PrivateGuard/>}>

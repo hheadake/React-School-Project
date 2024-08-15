@@ -14,8 +14,16 @@ return authData;
 });
 
 const updatedState = (value) => {
-    localStorage.setItem(key, JSON.stringify(value));
-    setState(value);
+
+   const newState = typeof value === 'function'
+   ? value(state)
+   : value;
+   
+   if(newState !== null && newState !== undefined) {
+
+       localStorage.setItem(key, JSON.stringify(newState));
+   }
+    setState(newState);
 }
 
 return [state, updatedState];
