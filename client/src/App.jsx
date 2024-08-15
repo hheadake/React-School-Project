@@ -18,6 +18,7 @@ import StudentsTest from "./components/QuestionForm/StudentsTest.jsx";
 import FormProfile from "./components/Profile/FormProfile.jsx";
 import Details from "./components/Catalog/Details.jsx";
 import Edit from "./components/Catalog/Edit.jsx";
+import PrivateGuard from "./components/PrivateGuard.jsx";
 
 function App() {
   
@@ -32,14 +33,16 @@ function App() {
     <Route path='/catalog' element={<CatalogPage/>} />
     <Route path='/login' element={<Login/>} />
     <Route path='/register' element={<Register/>} />
-    <Route path='/formCopmonent' element={<FormComponent/>} />
-    <Route path='/profile' element={<ProfileCard/>} />
-    <Route path='/addStudent' element={<AddStudent/>} />
-    <Route path='/quizForm' element={<QuizTable/>} />
-    <Route path='/editProfile' element={<FormProfile/>} />
     <Route path='/studentDetails/:studentId' element={<Details/>} />
+    <Route element={<PrivateGuard/>}>
     <Route path='/editStudent/:studentId' element={<Edit/>} />
+    <Route path='/addStudent' element={<AddStudent/>} />
+    <Route path='/profile' element={<ProfileCard/>} />
+    <Route path='/editProfile' element={<FormProfile/>} />
     <Route path='/studentTest/:testId' element={<StudentsTest/>} />
+    <Route path='/formCopmonent' element={<FormComponent/>} />
+    <Route path='/quizForm' element={<QuizTable/>} />
+    </Route>
     </Routes>
    </div>
    </AuthContextProvider>
