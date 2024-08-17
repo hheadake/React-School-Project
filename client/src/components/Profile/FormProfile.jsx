@@ -10,16 +10,17 @@ const initialValues = {
     year: '',
 }
 
+
 const FormProfile = () => {
     
-    const navigate = useNavigate()
+const navigate = useNavigate()
 const addProfile = useAddProfile();
 
 const addProfileHandler = async (values) => {
       
 try {
    await addProfile(values)
-    navigate('/profile')
+    navigate(`/profile`)
 
 } catch (err) {
     console.log(err)

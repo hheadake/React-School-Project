@@ -15,7 +15,7 @@ const CatalogPage = () => {
    
   }, []);
 
-  console.log(students)
+ 
 
   return (
     <div className="bg-gray-100 min-h-screen py-12">

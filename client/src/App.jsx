@@ -16,6 +16,7 @@ import { AuthContextProvider } from "./context/authContext.jsx";
 import QuizTable from "./components/QuestionForm/QuizForm.jsx";
 import StudentsTest from "./components/QuestionForm/StudentsTest.jsx";
 import FormProfile from "./components/Profile/FormProfile.jsx";
+
 import Details from "./components/Catalog/Details.jsx";
 import Edit from "./components/Catalog/Edit.jsx";
 import PrivateGuard from "./components/guard/PrivateGuard.jsx";
@@ -39,7 +40,8 @@ function App() {
     <Route element={<PrivateGuard/>}>
     <Route path='/editStudent/:studentId' element={<Edit/>} />
     <Route path='/addStudent' element={<AddStudent/>} />
-    <Route path='/profile' element={<ProfileCard/>} />
+    <Route path='/formProfile' element={<FormProfile/>} />
+    <Route path='/profile/:profileId' element={<ProfileCard/>} />
     <Route path='/editProfile' element={<FormProfile/>} />
     <Route path='/studentTest/:testId' element={<StudentsTest/>} />
     <Route path='/formCopmonent' element={<FormComponent/>} />

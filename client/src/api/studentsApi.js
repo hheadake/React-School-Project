@@ -1,5 +1,5 @@
 import * as request from './requester'
-//todo Change data name
+
 const BASE_URL = 'http://localhost:3030/data/students'
 
  const getAll = async () => {

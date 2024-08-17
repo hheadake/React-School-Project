@@ -24,12 +24,12 @@ const registerHandler = async ({email, password, name, familyName, role}) => {
   try {
     await register(email, password, name, familyName, role)
     
-    
     navigate('/')
 
   } catch (err) {
     console.log(err.message)
   }
+
 
 };
 

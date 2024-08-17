@@ -17,8 +17,8 @@ export function useGetOneProfile (ProfileId) {
 
 export function useAddProfile() {
 
-    const addProfileHandler = (profileData) => profileAPI.createProfile(profileData);
+    const addProfile = async (profileData) => await profileAPI.createProfile(profileData);
    
-    return addProfileHandler;
+    return addProfile;
     
 }

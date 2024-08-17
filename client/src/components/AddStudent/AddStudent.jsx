@@ -19,7 +19,7 @@ const addStudentHandler = async (values) => {
       
 try {
    await addStudent(values)
-    navigate('/')
+    navigate('/catalog')
 
 } catch (err) {
     console.log(err)

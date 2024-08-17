@@ -1,6 +1,5 @@
 import React from 'react'
-import { useGetOneTest } from '../../hooks/useTest';
-import { useParams } from 'react-router-dom';
+
 
 
 const AnswersCopmonent = ({
@@ -8,7 +7,7 @@ answers,
 
 
 }) => {
-    const { testId } = useParams();
+
     
 
     

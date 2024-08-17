@@ -1,23 +1,42 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/authContext';
 import { useParams } from 'react-router-dom';
 import { useGetOneProfile } from '../../hooks/useProfile';
-
+import { useAddProfile } from '../../hooks/useProfile';
 
 
 const ProfileCard = () => {
 
-  const {name, familyName,role} = useContext(AuthContext)
+  const {name, familyName,role,email, userID} = useContext(AuthContext)
+  const profileData = {
+    name: name,
+    familyName: familyName,
+    role: role,
+    email: email,
+    userID: userID
+  }
+  
+  
+  try {
+    useAddProfile(profileData)
+    
+  } catch (err) {
+    console.log(err);
+    
+  }
+
+
  
+// const { profileId } = useParams();
 
 
   
-  const [profile, setProfile] = useGetOneProfile();
+//  const [profile, setProfile] = useGetOneProfile(userID);
 
-
-  console.log(profile)
+// console.log(profile)
+  
 
   
 

@@ -29,7 +29,7 @@ function NavBarComp() {
             (<>
               <Link to={'/formCopmonent'} className="text-white hover:text-lime-300">Тестове</Link>
               <Link to={'/quizForm'} className="text-white hover:text-lime-300">Създай тест</Link>
-              <Link to={'/profile'} className="text-white hover:text-lime-300">Профил</Link>
+              <Link to={'/formProfile'} className="text-white hover:text-lime-300">Профил</Link>
               <Link to={'/addStudent'} className="text-white hover:text-lime-300">Добави ученик</Link>
               <Link to={'/logout'} className="text-white hover:text-lime-300">Изход</Link></>
             )
