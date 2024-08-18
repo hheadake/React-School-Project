@@ -26,7 +26,7 @@ const navigate = useNavigate();
 const {studentId} = useParams();
 const [student, setStudent] = useGetOnestudent(studentId);
 
-console.log(studentId)
+
 
 const {values, changeStateHandler, submitHandler} = useForm(Object.assign(initialValues, student), async (values) => {
     const updatedStudent = await studentAPI.update(studentId, values);

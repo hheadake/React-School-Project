@@ -43,9 +43,7 @@ const CatalogPage = () => {
                   </p>
                 </div>
                 <div className="flex items-center justify-between gap-1">
-                  <div className="text-sm text-gray-700">
-                    {item.price}
-                  </div>
+                  
                   
 
 

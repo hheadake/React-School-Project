@@ -21,7 +21,8 @@ const {isAuthenticated, userID} = useContext(AuthContext);
 const navigate = useNavigate()
 
 
-// const owner = userID === student._ownerId;
+ const owner = userID === student._ownerId;
+
 const removeStudent = async () => {
 
     try {
