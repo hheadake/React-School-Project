@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export function useAddTest() {
 
-    const addTestHandler = (test) => testAPI.createTest(test);
+    const addTestHandler = (test, accessToken) => testAPI.createTest(test, accessToken);
 
    
     return addTestHandler;

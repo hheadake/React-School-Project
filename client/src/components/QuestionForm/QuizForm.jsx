@@ -1,106 +1,184 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import { useForm } from '../../hooks/formHooks';
-import testAPI from '../../api/testApi';
-// Import CKEditor for content editing
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { useAddTest} from '../../hooks/useTest';
+import { useNavigate } from 'react-router-dom';
 
-const QuizForm = () => {
-  const navigate = useNavigate();
-  const accessToken = localStorage.getItem('accessToken')
+const QuizTable = () => {
+    const addTest = useAddTest();
+    const navigate = useNavigate();
+   
 
-
-  const initialValues = {
-      title: '',
-      content: '',
-      image: null,
-  };
-
- 
-  const submitCallBack = async (values) => {
-      const objectData = {
-        title: values.title,
-        content: values.content,
-      }
-
-    //   formData.append('title', values.title);
-    //   formData.append('content', values.content);
-    //   if (values.image) {
-    //       formData.append('image', values.image);
-    //   }
-
+    const initialValues = {
+      questions: [
+        {
+          question: "",
+          options: [
+            { text: "", correct: false },
+            { text: "", correct: false },
+            { text: "", correct: false },
+          ],
+        },
+      ],
+    };
+  
+    const submitCallBack = async (values) => {
+      
+      const formattedData = values.questions.map((q) => ({
+        question: q.question,
+        options: q.options.map((o) => ({
+          text: o.text,
+          correct: o.correct,
+        })),
+      }));
+    
       try {
-          
-          await testAPI.createTest(objectData, accessToken);
-          navigate('/');  
+       
+        await addTest(formattedData);
+        navigate('/formCopmonent');
       } catch (err) {
-          console.error('Error:', err);
+        console.log('Error submitting quiz:', err);
       }
-  };
-
-  // Use the useForm hook
-  const { values, changeStateHandler, submitHandler } = useForm(initialValues, submitCallBack);
-
-  return (
-      <div className="max-w-2xl mx-auto p-4">
-          <form onSubmit={submitHandler}>
-              <div className="mb-6">
-                  <label htmlFor="title" className="block text-lg font-medium text-gray-800 mb-1">
-                      Title
-                  </label>
+    };
+    
+    const {
+      values: { questions },
+      changeStateHandler,
+      submitHandler,
+    } = useForm(initialValues, submitCallBack);
+  
+    const addQuestion = () => {
+      const newQuestions = [
+        ...questions,
+        {
+          question: "",
+          options: [
+            { text: "", correct: false },
+            { text: "", correct: false },
+            { text: "", correct: false },
+          ],
+        },
+      ];
+      changeStateHandler({
+        target: {
+          name: 'questions',
+          value: newQuestions,
+        },
+      });
+    };
+  
+    const editQuestion = (index, newQuestion) => {
+      const updatedQuestions = [...questions];
+      updatedQuestions[index].question = newQuestion;
+      changeStateHandler({
+        target: {
+          name: 'questions',
+          value: updatedQuestions,
+        },
+      });
+    };
+  
+    const editOption = (qIndex, oIndex, newOption) => {
+      const updatedQuestions = [...questions];
+      updatedQuestions[qIndex].options[oIndex].text = newOption;
+      changeStateHandler({
+        target: {
+          name: 'questions',
+          value: updatedQuestions,
+        },
+      });
+    };
+  
+    const markCorrect = (qIndex, oIndex) => {
+      const updatedQuestions = [...questions];
+      updatedQuestions[qIndex].options = updatedQuestions[qIndex].options.map((option, index) => ({
+        ...option,
+        correct: index === oIndex,
+      }));
+      changeStateHandler({
+        target: {
+          name: 'questions',
+          value: updatedQuestions,
+        },
+      });
+    };
+  
+    const deleteQuestion = (index) => {
+      const updatedQuestions = questions.filter((_, i) => i !== index);
+      changeStateHandler({
+        target: {
+          name: 'questions',
+          value: updatedQuestions,
+        },
+      });
+    };
+  
+    return (
+      <div className="container mx-auto p-4">
+        <h1 className="text-3xl font-semibold text-gray-900 text-center font-serif mb-4">
+          Quiz
+        </h1>
+        <form onSubmit={submitHandler}>
+          <div className="space-y-4">
+            {questions.map((q, qIndex) => (
+              <div key={qIndex} className="p-4 bg-white rounded-xl shadow-md">
+                <div className="mb-2">
                   <input
-                      type="text"
-                      id="title"
-                      name="title"
-                      value={values.title}
-                      onChange={changeStateHandler}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
-                      required
+                    type="text"
+                    name={questions[`${qIndex}`].question}
+                    value={q.question}
+                    onChange={(e) => editQuestion(qIndex, e.target.value)}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition ease-in-out duration-150 focus:ring-2 focus:ring-blue-500 hover:shadow-lg"
                   />
-              </div>
-
-              <div className="mb-6">
-                  <label htmlFor="content" className="block text-lg font-medium text-gray-800 mb-1">
-                      Content
-                  </label>
-                  <CKEditor
-                      editor={ClassicEditor}
-                      data={values.content}
-                      onChange={(event, editor) => {
-                          const data = editor.getData();
-                          changeStateHandler({ target: { name: 'content', value: data } });
-                      }}
-                  />
-              </div>
-
-              <div className="mb-6">
-                  <label htmlFor="image" className="block text-lg font-medium text-gray-800 mb-1">
-                      Image
-                  </label>
-                  <input
-                      type="file"
-                      id="image"
-                      name="image"
-                      accept="image/*"
-                      onChange={(e) => changeStateHandler({ target: { name: 'image', value: e.target.files[0] } })}
-                      className="w-full"
-                  />
-              </div>
-
-              <div className="flex justify-end">
+                </div>
+                <div>
+                  {q.options.map((option, oIndex) => (
+                    <div key={oIndex} className="flex items-center space-x-2 mb-2">
+                      <input
+                        type="text"
+                        name={questions[`${qIndex}`].options[`${oIndex}`].text}
+                        value={option.text}
+                        onChange={(e) => editOption(qIndex, oIndex, e.target.value)}
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition ease-in-out duration-150 focus:ring-2 focus:ring-blue-500 hover:shadow-lg"
+                      />
+                      <input
+                        type="radio"
+                        name={questions[`${qIndex}`].correct}
+                        checked={option.correct}
+                        onChange={() => markCorrect(qIndex, oIndex)}
+                        className="ml-2"
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="flex justify-end space-x-4">
                   <button
-                      type="submit"
-                      className="px-6 py-2 bg-indigo-500 text-white font-semibold rounded-md hover:bg-indigo-600 focus:outline-none"
+                    type="button"
+                    onClick={() => deleteQuestion(qIndex)}
+                    className="text-red-500"
                   >
-                      Submit
+                    изтрий
                   </button>
+                </div>
               </div>
-          </form>
+            ))}
+          </div>
+  
+          <button
+            type="button"
+            onClick={addQuestion}
+            className="mt-4 bg-sky-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
+          >
+            Добави въпроси
+          </button>
+          <button
+            type="submit"
+            className="mt-4 ml-4 bg-amber-400 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded"
+          >
+            Запази
+          </button>
+        </form>
       </div>
-  );
-};
-
-
-export default QuizForm;
+    );
+  };
+  
+  export default QuizTable 

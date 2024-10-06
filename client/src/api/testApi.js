@@ -3,8 +3,10 @@ import * as request from './requester'
 
 const BASE_URL = 'http://localhost:3030/data/test'
 
+const accessToken = localStorage.getItem('accessToken')
 
-const createTest = (test, accessToken) => request.post(`${BASE_URL}`, test, accessToken)
+
+const createTest = (test) => request.post(`${BASE_URL}`, test, accessToken)
 
 const getAll = async () => {
     
