@@ -9,27 +9,32 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const QuizForm = () => {
   const navigate = useNavigate();
+  const accessToken = localStorage.getItem('accessToken')
 
-  // Initial values for the form
+
   const initialValues = {
       title: '',
       content: '',
       image: null,
   };
 
-  // Callback function to handle form submission
+ 
   const submitCallBack = async (values) => {
-      const formData = new FormData();
-      formData.append('title', values.title);
-      formData.append('content', values.content);
-      if (values.image) {
-          formData.append('image', values.image);
+      const objectData = {
+        title: values.title,
+        content: values.content,
       }
 
+    //   formData.append('title', values.title);
+    //   formData.append('content', values.content);
+    //   if (values.image) {
+    //       formData.append('image', values.image);
+    //   }
+
       try {
-          // Use testAPI to create a new test/post
-          await testAPI.createTest(formData);
-          navigate('/');  // Redirect to a success page on completion
+          
+          await testAPI.createTest(objectData, accessToken);
+          navigate('/');  
       } catch (err) {
           console.error('Error:', err);
       }

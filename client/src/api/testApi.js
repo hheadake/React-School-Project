@@ -4,7 +4,7 @@ import * as request from './requester'
 const BASE_URL = 'http://localhost:3030/data/test'
 
 
-const createTest = (test) => request.post(`${BASE_URL}`, test)
+const createTest = (test, accessToken) => request.post(`${BASE_URL}`, test, accessToken)
 
 const getAll = async () => {
     

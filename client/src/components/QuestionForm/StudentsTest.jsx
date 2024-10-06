@@ -9,23 +9,16 @@ const StudentsTest = () => {
   const { testId } = useParams();
   const [test, setTest] = useGetOneTest(testId);
   
-  const questionsWithAnswers = []
-  
-  test.forEach((value, key) => {
-    console.log(key, value);
-});
 
-  console.log(test)
-
-
-  for (const element of Object.values(test)) {
-    if (element.question && element.options) {
-      questionsWithAnswers.push({
-        question: element.question,
-        answers: element.options.map(option => option.text),
-      });
-    }
-  }
+ console.log(test)
+  // for (const element of Object.values(test)) {
+  //   if (element.question && element.options) {
+  //     questionsWithAnswers.push({
+  //       question: element.question,
+  //       answers: element.options.map(option => option.text),
+  //     });
+  //   }
+  // }
 
 
 
@@ -35,7 +28,7 @@ const StudentsTest = () => {
       Quiz
     </h1>
     <form>
-      <div className="space-y-4">
+      {/* <div className="space-y-4">
         {questionsWithAnswers.map((item, qIndex) => (
           <div key={qIndex} className="p-4 bg-white rounded-xl shadow-md">
             <div className="mb-2">
@@ -52,7 +45,7 @@ const StudentsTest = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </form>
   </div>);
 };
