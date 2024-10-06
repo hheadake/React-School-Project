@@ -1,6 +1,11 @@
 import { useContext } from "react"
 import { login, register, logout } from "../api/authApi"
 import { AuthContext } from "../context/authContext.jsx"
+import { useNavigate } from "react-router-dom"
+
+
+
+
 
 export const useLogin = () => {
     const { changeAuthState } = useContext(AuthContext)
@@ -35,12 +40,14 @@ export const useRegister = () => {
 }
 
 export const useLogout = () => {
+    
 
     const { logout: localLogout } = useContext(AuthContext)
 
     const logoutHandler = async () => {
          await logout();
          localLogout();
+         
         
       
     }

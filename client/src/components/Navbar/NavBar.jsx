@@ -9,16 +9,23 @@ import { AuthContext } from '../../context/authContext.jsx';
 function NavBarComp() {
   const { isAuthenticated } = useContext(AuthContext);
   const { select } = useContext(AuthContext);
-
+if (select === 'teacher') (
+  console.log(true)
+)
   return (
     <header className="bg-amber-700 text-white shadow-md">
       <div className="max-w-screen-xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
+          <Link to={'/'}>
           <img
+    
             className="h-20 w-20"
             src="https://img.icons8.com/?size=100&id=P6W1qLRLj5Mo&format=png&color=000000"
             alt="Logo"
           />
+          </Link>
+          
+          
           <h1 className="text-lg ml-4 font-sans ">LEARNIT</h1>
         </div>
         <nav className="space-x-4">

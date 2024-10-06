@@ -9,14 +9,14 @@ import { useAddProfile } from '../../hooks/useProfile';
 
 const ProfileCard = () => {
 
-  const {name, familyName,role,email, userID} = useContext(AuthContext)
-  const profileData = {
-    name: name,
-    familyName: familyName,
-    role: role,
-    email: email,
-    userID: userID
-  }
+  // const {name, familyName,role,email, userID} = useContext(AuthContext)
+  // const profileData = {
+  //   name: name,
+  //   familyName: familyName,
+  //   role: role,
+  //   email: email,
+  //   userID: userID
+  // }
   
   
   try {

@@ -4,16 +4,8 @@ import React from 'react'
 
 const AnswersCopmonent = ({
 answers,
-
-
 }) => {
 
-    
-
-    
- 
-
-  
   return (
       <div className="flex items-center space-x-2 mb-2">
    {answers.map((a) => (
@@ -24,14 +16,6 @@ answers,
       className="hover:bg-amber-500 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
     />
    ))}
-    
-    {/* /* <input
-    type="radio"
-    // name={question-${qIndex}}
-    // checked={option.correct}
-    
-    className="ml-2"
-  />  */}
 
 </div>
   )

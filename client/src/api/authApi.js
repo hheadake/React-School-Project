@@ -2,9 +2,9 @@ import requester from "./requester";
 
 const BASE_URL = 'http://localhost:3030/users';
 
-export const login = async (email, password) => {  
+export const login = async (email, password, accessToken) => {  
   
-    const authData = await requester.post(`${BASE_URL}/login`, { email, password });
+    const authData = await requester.post(`${BASE_URL}/login`, { email, password, accessToken});
  
 
 
@@ -13,8 +13,8 @@ export const login = async (email, password) => {
 
 }
 
-export const register = async (email, password) => {
-    const authData = await requester.post(`${BASE_URL}/register`, {email, password})
+export const register = async (email, password, accessToken) => {
+    const authData = await requester.post(`${BASE_URL}/register`, {email, password, accessToken})
  
     return authData;
 }

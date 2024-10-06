@@ -10,6 +10,12 @@ const StudentsTest = () => {
   const [test, setTest] = useGetOneTest(testId);
   
   const questionsWithAnswers = []
+  
+  test.forEach((value, key) => {
+    console.log(key, value);
+});
+
+  console.log(test)
 
 
   for (const element of Object.values(test)) {
